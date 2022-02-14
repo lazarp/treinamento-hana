@@ -81,14 +81,14 @@
       <viewAttribute id="PESO_UNITARIO"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="PESO_ITEM" datatype="DECIMAL" length="10" scale="2" expressionLanguage="SQL">
-        <formula>&quot;PESO_UNITARIO&quot;*&quot;QUANTIDADE&quot;</formula>
+      <calculatedViewAttribute id="PESO_ITEM" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>ROUND(&quot;PESO_UNITARIO&quot;*&quot;QUANTIDADE&quot;,2)</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="PRECO_ITEM" datatype="DECIMAL" length="12" scale="2" expressionLanguage="SQL">
-        <formula>&quot;PRECO_UNITARIO&quot;*&quot;QUANTIDADE&quot;</formula>
+      <calculatedViewAttribute id="PRECO_ITEM" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>ROUND(&quot;PRECO_UNITARIO&quot;*&quot;QUANTIDADE&quot;,2)</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="CUSTO_ITEM" datatype="DECIMAL" length="12" scale="2" expressionLanguage="SQL">
-        <formula>&quot;CUSTO_UNITARIO&quot;*&quot;QUANTIDADE&quot;</formula>
+      <calculatedViewAttribute id="CUSTO_ITEM" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>ROUND(&quot;CUSTO_UNITARIO&quot;*&quot;QUANTIDADE&quot;,2)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="Join_1"/>
@@ -166,11 +166,11 @@
     </shape>
     <shape modelObjectName="Itens" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="158.11767578125"/>
+      <rectangleSize width="158"/>
     </shape>
     <shape modelObjectName="Produtos" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="182.97509765625"/>
+      <rectangleSize width="182"/>
     </shape>
     <shape expanded="true" modelObjectName="Calculos" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="100" y="190"/>

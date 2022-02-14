@@ -117,16 +117,16 @@
       <viewAttribute id="CUSTO_PEDIDO" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="FRETE_PEDIDO" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL">
+      <calculatedViewAttribute id="FRETE_PEDIDO" datatype="DOUBLE" expressionLanguage="SQL">
         <formula>ROUND(&quot;FRETE_UNIDADE_PESO&quot;*&quot;PESO_PEDIDO&quot;, 2)</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="VALOR_FINAL_PEDIDO" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL">
-        <formula>&quot;PRECO_PEDIDO&quot;+&quot;FRETE_PEDIDO&quot;</formula>
+      <calculatedViewAttribute id="VALOR_FINAL_PEDIDO" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>ROUND(&quot;PRECO_PEDIDO&quot;+&quot;FRETE_PEDIDO&quot;,2)</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="LUCRO_PEDIDO" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL">
-        <formula>&quot;PRECO_PEDIDO&quot;-&quot;CUSTO_PEDIDO&quot;</formula>
+      <calculatedViewAttribute id="LUCRO_PEDIDO" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>ROUND(&quot;PRECO_PEDIDO&quot;-&quot;CUSTO_PEDIDO&quot;, 2)</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="LUCRO_PERCENTUAL_PEDIDO" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL">
+      <calculatedViewAttribute id="LUCRO_PERCENTUAL_PEDIDO" datatype="DOUBLE" expressionLanguage="SQL">
         <formula>ROUND(&quot;LUCRO_PEDIDO&quot;/&quot;PRECO_PEDIDO&quot;,2)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
@@ -236,11 +236,11 @@
     </shape>
     <shape modelObjectName="T_ENDERECOS" modelObjectNameSpace="EnderecosComFretes" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="171.97509765625"/>
+      <rectangleSize width="171"/>
     </shape>
     <shape modelObjectName="T_FRETES" modelObjectNameSpace="EnderecosComFretes" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="214.36376953125"/>
+      <rectangleSize width="214"/>
     </shape>
     <shape expanded="true" modelObjectName="JoinPedidosEEnderecos" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="103" y="360"/>
@@ -248,11 +248,11 @@
     </shape>
     <shape modelObjectName="T_PEDIDOS_COMPRA" modelObjectNameSpace="JoinPedidosEEnderecos" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="192.021484375"/>
+      <rectangleSize width="192"/>
     </shape>
     <shape modelObjectName="EnderecosComFretes" modelObjectNameSpace="JoinPedidosEEnderecos" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="214.36376953125"/>
+      <rectangleSize width="214"/>
     </shape>
     <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="383" y="360"/>
@@ -264,11 +264,11 @@
     </shape>
     <shape modelObjectName="JoinPedidosEEnderecos" modelObjectNameSpace="Calculos" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="214.36376953125"/>
+      <rectangleSize width="214"/>
     </shape>
     <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Calculos" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="173.4091796875"/>
+      <rectangleSize width="173"/>
     </shape>
   </shapes>
 </layout>
