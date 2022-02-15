@@ -1,16 +1,22 @@
 _schema-version: "2.1"
 ID: treinamento
-version: 0.0.1
+version: 0.0.2
+# build-parameters:
+  # before-all:
+  #   - builder: custom
+  #     commands:
+#        - npx rimraf db/src/native_tables/data # uncomment this line to prevent loading of initial data which is only relevant for dev/test deployments
+#        - npx rimraf gen/db/src/gen/csv  # uncomment this line unless db/csv folder has been used for config/control table data which is entirely managed by the developer and never changed by the app
 modules:
-- name: db
-  type: hdb
-  path: db
-  requires:
-  - name: hdi_db
-    properties:
-      TARGET_CONTAINER: ~{hdi-container-name}
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+        properties:
+          TARGET_CONTAINER: ~{hdi-container-name}
 resources:
-- name: hdi_db
-  type: com.sap.xs.hdi-container
-  properties:
-    hdi-container-name: ${service-name}
+  - name: hdi_db
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}
