@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_EX1" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_EX1.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_PEDIDOS">
+    <resourceUri>CV_PEDIDOS</resourceUri>
+  </DataSource>
+  <DataSource id="T_CLIENTES">
+    <resourceUri>T_CLIENTES</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="JoinPedidosEClientes" cardinality="CN_1" joinType="leftOuter">
+    <descriptions>
+      <comment text="Associando dados do cliente a cada pedido"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="PEDIDO_ID"/>
+      <viewAttribute id="CLIENTE_ID"/>
+      <viewAttribute id="NOME"/>
+      <viewAttribute id="EMAIL"/>
+      <viewAttribute id="FONE"/>
+      <viewAttribute id="DESDE"/>
+      <viewAttribute id="ENDERECO_ID"/>
+      <viewAttribute id="LOGRADOURO"/>
+      <viewAttribute id="COMPLEMENTO"/>
+      <viewAttribute id="NUMERO"/>
+      <viewAttribute id="CEP"/>
+      <viewAttribute id="DATA_PEDIDO"/>
+      <viewAttribute id="PESO_PEDIDO"/>
+      <viewAttribute id="PRECO_PEDIDO"/>
+      <viewAttribute id="CUSTO_PEDIDO"/>
+      <viewAttribute id="FRETE_PEDIDO"/>
+      <viewAttribute id="VALOR_FINAL_PEDIDO"/>
+      <viewAttribute id="LUCRO_PEDIDO"/>
+      <viewAttribute id="LUCRO_PERCENTUAL_PEDIDO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_PEDIDOS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PEDIDO_ID" source="PEDIDO_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENTE_ID" source="CLIENTE_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDERECO_ID" source="ENDERECO_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOGRADOURO" source="LOGRADOURO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPLEMENTO" source="COMPLEMENTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NUMERO" source="NUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEP" source="CEP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATA_PEDIDO" source="DATA_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PESO_PEDIDO" source="PESO_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRECO_PEDIDO" source="PRECO_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTO_PEDIDO" source="CUSTO_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FRETE_PEDIDO" source="FRETE_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VALOR_FINAL_PEDIDO" source="VALOR_FINAL_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LUCRO_PEDIDO" source="LUCRO_PEDIDO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LUCRO_PERCENTUAL_PEDIDO" source="LUCRO_PERCENTUAL_PEDIDO"/>
+    </input>
+    <input node="T_CLIENTES">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOME" source="NOME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL" source="EMAIL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FONE" source="FONE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESDE" source="DESDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIENTE_ID" source="CLIENTE_ID"/>
+    </input>
+    <joinAttribute name="CLIENTE_ID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="JoinPedidosEClientes">
+  <attributes>
+    <attribute id="PEDIDO_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PEDIDO_ID"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="PEDIDO_ID"/>
+    </attribute>
+    <attribute id="CLIENTE_ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENTE_ID"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="CLIENTE_ID"/>
+    </attribute>
+    <attribute id="NOME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOME"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="NOME"/>
+    </attribute>
+    <attribute id="EMAIL" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="EMAIL"/>
+    </attribute>
+    <attribute id="FONE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FONE"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="FONE"/>
+    </attribute>
+    <attribute id="DESDE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DESDE"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="DESDE"/>
+    </attribute>
+    <attribute id="ENDERECO_ID" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ENDERECO_ID"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="ENDERECO_ID"/>
+    </attribute>
+    <attribute id="LOGRADOURO" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOGRADOURO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="LOGRADOURO"/>
+    </attribute>
+    <attribute id="COMPLEMENTO" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPLEMENTO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="COMPLEMENTO"/>
+    </attribute>
+    <attribute id="NUMERO" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NUMERO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="NUMERO"/>
+    </attribute>
+    <attribute id="CEP" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CEP"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="CEP"/>
+    </attribute>
+    <attribute id="DATA_PEDIDO" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATA_PEDIDO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="DATA_PEDIDO"/>
+    </attribute>
+    <attribute id="PESO_PEDIDO" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PESO_ITEM"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="PESO_PEDIDO"/>
+    </attribute>
+    <attribute id="PRECO_PEDIDO" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRECO_ITEM"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="PRECO_PEDIDO"/>
+    </attribute>
+    <attribute id="CUSTO_PEDIDO" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTO_ITEM"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="CUSTO_PEDIDO"/>
+    </attribute>
+    <attribute id="FRETE_PEDIDO" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FRETE_PEDIDO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="FRETE_PEDIDO"/>
+    </attribute>
+    <attribute id="VALOR_FINAL_PEDIDO" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VALOR_FINAL_PEDIDO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="VALOR_FINAL_PEDIDO"/>
+    </attribute>
+    <attribute id="LUCRO_PEDIDO" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LUCRO_PEDIDO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="LUCRO_PEDIDO"/>
+    </attribute>
+    <attribute id="LUCRO_PERCENTUAL_PEDIDO" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LUCRO_PERCENTUAL_PEDIDO"/>
+      <keyMapping columnObjectName="JoinPedidosEClientes" columnName="LUCRO_PERCENTUAL_PEDIDO"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="JoinPedidosEClientes" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="256"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="CV_PEDIDOS" modelObjectNameSpace="JoinPedidosEClientes" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="252.87451171875"/>
+    </shape>
+    <shape modelObjectName="T_CLIENTES" modelObjectNameSpace="JoinPedidosEClientes" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="390" y="31"/>
+      <rectangleSize width="149.572265625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_EX2" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_EX2.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_ITENS">
+    <resourceUri>CV_ITENS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="PRODUTO_ID"/>
+      <viewAttribute id="DESCRICAO"/>
+      <viewAttribute id="QUANTIDADE" aggregationType="sum"/>
+      <viewAttribute id="SUM_PESO_PRODUTO" aggregationType="sum"/>
+      <viewAttribute id="SUM_PRECO_PRODUTO" aggregationType="sum"/>
+      <viewAttribute id="SUM_CUSTO_PRODUTO" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="CV_ITENS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_PESO_PRODUTO" source="PESO_ITEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_PRECO_PRODUTO" source="PRECO_ITEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_CUSTO_PRODUTO" source="CUSTO_ITEM"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_1">
+  <attributes>
+    <attribute id="PRODUTO_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUTO_ID"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PRODUTO_ID"/>
+    </attribute>
+    <attribute id="DESCRICAO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DESCRICAO"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="DESCRICAO"/>
+    </attribute>
+    <attribute id="QUANTIDADE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUANTIDADE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="QUANTIDADE"/>
+    </attribute>
+    <attribute id="SUM_PESO_PRODUTO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PESO_ITEM"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="SUM_PESO_PRODUTO"/>
+    </attribute>
+    <attribute id="SUM_PRECO_PRODUTO" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRECO_ITEM"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="SUM_PRECO_PRODUTO"/>
+    </attribute>
+    <attribute id="SUM_CUSTO_PRODUTO" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTO_ITEM"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="SUM_CUSTO_PRODUTO"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="255"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
