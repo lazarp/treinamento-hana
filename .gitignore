@@ -1,3 +1,5 @@
 mta_archives/
 **/node_modules/**
-.env*
+default-env.json
+*.env
+*.mta
