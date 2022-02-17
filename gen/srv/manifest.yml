@@ -1,9 +1,7 @@
 ---
 applications:
-  - name: treinamento-db
+  - name: treinamento-srv
     path: .
-    no-route: true
-    health-check-type: process
     memory: 256M
     buildpacks:
       - nodejs_buildpack
