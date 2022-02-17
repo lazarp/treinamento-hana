@@ -256,6 +256,7 @@ Comando 4:
 cd gen/db
 hanacli copy2DefaultEnv
 mv default-env.json ../../
+cd ../..
 
 ==============================================================================================
 Comando 5:
