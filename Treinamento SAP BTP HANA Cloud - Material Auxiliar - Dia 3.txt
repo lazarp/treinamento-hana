@@ -1,0 +1,211 @@
+Treinamento SAP BTP HANA Cloud - Material Auxiliar 
+
+Tabelas
+
+T_CLIENTES.hdbtable ------------------------------
+
+COLUMN TABLE T_CLIENTES(
+    CLIENTE_ID INTEGER NOT NULL,
+    NOME NVARCHAR(255),
+    EMAIL NVARCHAR(255),
+    FONE NVARCHAR(50),
+    DESDE DATE,
+    PRIMARY KEY (CLIENTE_ID)
+)
+
+--------------------------------------------------
+
+T_ENDERECOS.hdbtable -----------------------------
+
+COLUMN TABLE "T_ENDERECOS" (
+    "CLIENTE_ID" INTEGER NOT NULL,
+    "ENDERECO_ID" INTEGER NOT NULL,
+    "LOGRADOURO" NVARCHAR(255),
+    "NUMERO" INTEGER,
+    "COMPLEMENTO" NVARCHAR(255),
+    "CEP" NVARCHAR(9),
+    PRIMARY KEY ("CLIENTE_ID", "ENDERECO_ID")
+)
+
+--------------------------------------------------
+
+T_FRETES.hdbtable --------------------------------
+
+COLUMN TABLE T_FRETES(
+    CEP NVARCHAR(9) NOT NULL,
+    FRETE_UNIDADE_PESO DOUBLE,
+    PRIMARY KEY (CEP)
+)
+
+--------------------------------------------------
+
+T_PRODUTOS.hdbtable ------------------------------
+
+COLUMN TABLE T_PRODUTOS(
+    PRODUTO_ID INTEGER NOT NULL,
+    DESCRICAO NVARCHAR(255),
+    PRECO_UNITARIO DOUBLE,
+    CUSTO_UNITARIO DOUBLE,
+    PESO_UNITARIO DOUBLE,
+    PRIMARY KEY (PRODUTO_ID)
+)
+
+--------------------------------------------------
+
+T_ITENS_COMPRA.hdbtable --------------------------
+
+COLUMN TABLE T_ITENS_COMPRA(
+    PEDIDO_ID INTEGER NOT NULL,
+    ITEM_ID INTEGER NOT NULL,
+    PRODUTO_ID INTEGER,
+    QUANTIDADE INTEGER,
+    PRIMARY KEY (PEDIDO_ID, ITEM_ID)
+)
+
+--------------------------------------------------
+
+T_PEDIDOS_COMPRA.hdbtable ------------------------
+
+COLUMN TABLE T_PEDIDOS_COMPRA(
+    PEDIDO_ID INTEGER NOT NULL,
+    CLIENTE_ID INTEGER,
+    DATA_PEDIDO DATE,
+    ENDERECO_ID INTEGER,
+    PRIMARY KEY (PEDIDO_ID)
+)
+
+--------------------------------------------------
+
+
+========================================================
+
+Carga de Dados
+
+import.hdbtabledata ------------------------------
+
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "T_CLIENTES",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T_CLIENTES.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true,
+                    "quote_character": "\""
+                }
+            }
+        },
+        {
+            "target_table": "T_ENDERECOS",
+            "import_settings": {
+                "import_columns":[
+                    "CLIENTE_ID",
+                    "ENDERECO_ID",
+                    "LOGRADOURO",
+                    "COMPLEMENTO",
+                    "NUMERO",
+                    "CEP"
+                ],
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T_ENDERECOS.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true,
+                    "quote_character": "\""
+                }
+            }
+        },
+        {
+            "target_table": "T_FRETES",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T_FRETES.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true,
+                    "quote_character": "\""
+                }
+            }
+        },
+        {
+            "target_table": "T_PRODUTOS",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T_PRODUTOS.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true,
+                    "quote_character": "\""
+                }
+            }
+        },
+        {
+            "target_table": "T_ITENS_COMPRA",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T_ITENS_COMPRA.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true,
+                    "quote_character": "\""
+                }
+            }
+        },
+        {
+            "target_table": "T_PEDIDOS_COMPRA",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T_PEDIDOS_COMPRA.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true,
+                    "quote_character": "\""
+                }
+            }
+        }
+    ]
+}
+
+--------------------------------------------------
+
+
+========================================================
+
+Recursos para a carga de dados
+
+Os arquivos .csv a serem utilizados também podem ser encontrados no meu repositório github:
+
+https://github.com/lazarp/treinamento-hana/tree/master/db/src/native_tables/data
