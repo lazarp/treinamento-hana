@@ -254,7 +254,7 @@ npm install -g hana-cli
 Comando 4:
 
 cd gen/db
-hanacli copy2DefaultEnv
+hana-cli copy2DefaultEnv
 mv default-env.json ../../
 cd ../..
 
