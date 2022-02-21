@@ -240,16 +240,23 @@ Comando 1:
 
 npm install
 
+Função: Instala as dependências informadas no arquivo package.json presente no atual diretório
+do terminal.
+
 ==============================================================================================
 Comando 2:
 
 cds build
 
+Função: Realiza a compilação dos modelos '.cds' presentes no projeto (tanto na pasta db quanto
+na pasta srv e escreve os artefatos deployáveis gerados na pasta 'gen' por padrão.
 ==============================================================================================
 Comando 3:
 
 npm install -g hana-cli
 
+Função: Instala no seu DEV Space o pacote de utilitários hana-cli. Para explorar os comandos
+possíveis, basta executar 'hana-cli' no terminal.
 ==============================================================================================
 Comando 4:
 
@@ -258,10 +265,22 @@ hana-cli copy2DefaultEnv
 mv default-env.json ../../
 cd ../..
 
+função: Copia e reformata as variáveis de ambiente que se encontram no arquivo '.env' no dire-
+torio gen/db e depois move o arquivo gerado para a pasta raiz. É útil para habilitar a conexão
+do hana-cli com o HDI Container, o que viabiliza a execução do cds run e também das funções de
+inspeção (como a inspectView).
 ==============================================================================================
 Comando 5:
 
 cds run
+
+Comando 6:
+
+hana-cli inspectView -o cds <nome da view>
+
+função: Acessa a view indicada (que precisa ja estar deployada) e traz sua assinatura no for-
+mato cds. É útil para o preenchimento do modelo de dados cds com as assinaturas das views que
+se pretende utilizar no serviço.
 
 ############################   PROPRIEDADES DA DESTINATION    ################################
 
